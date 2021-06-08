@@ -9,20 +9,14 @@ namespace TeamScheduler
         public List<Match> GenerateMatches(List<string> teams)
         {
             List<Match> matches = new List<Match>();
-            if (teams.Count < 2)
+            if (teams.Count < 1)
             {
-                if(teams.Count < 1)
-                {
-                    return matches;
-                }
-                else
-                {
-                   // matches.Add(teams[0]);
-                    return matches;
-                }
-               // teams.Count < 1 ? (return matches) : return matches.Add(teams[0]);
+                return matches;
             }
-            
+            else
+            {
+                return matches;
+            }
         }
     }
 }
