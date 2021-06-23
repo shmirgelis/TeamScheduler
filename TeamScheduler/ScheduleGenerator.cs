@@ -8,6 +8,10 @@ namespace TeamScheduler
     {
         public List<Match> GenerateMatches(List<string> teams)
         {
+            if(teams == null)
+            {
+                throw new ArgumentNullException();
+            }
             List<Match> matches = new List<Match>();
             if (teams.Count < 2)
             {
@@ -21,7 +25,7 @@ namespace TeamScheduler
 
             for (int i = 0; i < teams.Count - 1; i++)
             {
-                var teamsInSingleRound = RoundCalculator(teams, i + 1);
+                var teamsInSingleRound = CalculateRound(teams, i + 1);
                 string lastTeam = teams[teams.Count - 1];
                 teams.RemoveAt(teams.Count - 1);
                 teams.Insert(1, lastTeam);
@@ -34,19 +38,19 @@ namespace TeamScheduler
 
             return matches;
         }
-        static List<Match> RoundCalculator(List<string> teams, int roundNo)
+        static List<Match> CalculateRound(List<string> teams, int roundNo)
         {
             List<Match> pairedTeams = new List<Match> { };
 
             for (int i = 0; i < teams.Count / 2; i++)
             {
-                if ((roundNo % 2 == 0 && i == 0))
+                if (roundNo % 2 != 0 )
                 {
-                    pairedTeams.Add(new Match(teams[^(i + 1)], teams[i], roundNo));
+                    pairedTeams.Add(new Match(teams[i], teams[^(i + 1)], roundNo));                 
                 }
                 else
                 {
-                    pairedTeams.Add(new Match(teams[i], teams[^(i + 1)], roundNo));
+                    pairedTeams.Add(new Match(teams[^(i + 1)], teams[i], roundNo));
                 }
 
             }

@@ -65,7 +65,7 @@ namespace TeamSchedulerTests
             //Arrange
             var generator = new ScheduleGenerator();
             var teams = new List<string> { "Rytas", "Zalgiris", "Nafta" };
-            var expectedResult = new List<Match> { new Match("Rytas", "Bye", 1), new Match("Zalgiris", "Nafta", 1), new Match("Nafta", "Rytas", 2), new Match("Bye", "Zalgiris", 2), new Match("Rytas", "Zalgiris", 3), new Match("Nafta", "Bye", 3) };
+            var expectedResult = new List<Match> { new Match("Rytas", "Bye", 1), new Match("Zalgiris", "Nafta", 1), new Match("Nafta", "Rytas", 2), new Match("Zalgiris", "Bye", 2), new Match("Rytas", "Zalgiris", 3), new Match("Nafta", "Bye", 3) };
             var serializedExpectedResult = JsonSerializer.Serialize(expectedResult);
 
             //Act
@@ -99,7 +99,7 @@ namespace TeamSchedulerTests
             //Arrange
             var generator = new ScheduleGenerator();
             var teams = new List<string> { "Rytas", "Zalgiris", "Nafta", "Neptunas", "Telia", "Sakalai" };
-            var expectedResult = new List<Match> { new Match("Rytas", "Sakalai", 1), new Match("Zalgiris", "Telia", 1), new Match("Nafta", "Neptunas", 1), new Match("Telia", "Rytas", 2), new Match("Sakalai", "Neptunas", 2), new Match("Zalgiris", "Nafta", 2), new Match("Rytas", "Neptunas", 3), new Match("Telia", "Nafta", 3), new Match("Sakalai", "Zalgiris", 3), new Match("Nafta", "Rytas", 4), new Match("Neptunas", "Zalgiris", 4), new Match("Telia", "Sakalai", 4), new Match("Rytas", "Zalgiris", 5), new Match("Nafta", "Sakalai", 5), new Match("Neptunas", "Telia", 5) };
+            var expectedResult = new List<Match> { new Match("Rytas", "Sakalai", 1), new Match("Zalgiris", "Telia", 1), new Match("Nafta", "Neptunas", 1), new Match("Telia", "Rytas", 2), new Match("Neptunas", "Sakalai", 2), new Match("Nafta", "Zalgiris", 2), new Match("Rytas", "Neptunas", 3), new Match("Telia", "Nafta", 3), new Match("Sakalai", "Zalgiris", 3), new Match("Nafta", "Rytas", 4), new Match("Zalgiris", "Neptunas", 4), new Match("Sakalai", "Telia", 4), new Match("Rytas", "Zalgiris", 5), new Match("Nafta", "Sakalai", 5), new Match("Neptunas", "Telia", 5) };
             var serializedExpectedResult = JsonSerializer.Serialize(expectedResult);
 
             //Act
